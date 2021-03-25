@@ -6,7 +6,7 @@ driver = None
 
 
 @pytest.fixture()
-def setUp(request):
+def setup(request):
     global driver
 
     browser = request.config.getoption("browser")
@@ -70,6 +70,12 @@ def _capture_screenshot(name):
 
 
 def pytest_configure(config):
-    config._metadata['Project Name'] = 'nopCommerce'
+    config._metadata['Project Name'] = 'Automation Practice'
     config._metadata['Module Name'] = 'Customer'
     config._metadata['Tester'] = 'Ritesh'
+
+
+@pytest.mark.optionhook
+def pytest_metadata(metadata):
+    metadata.pop("JAVA_HOME", None)
+    metadata.pop("Plugins", None)

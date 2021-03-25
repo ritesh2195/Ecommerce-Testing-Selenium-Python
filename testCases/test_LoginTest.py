@@ -27,4 +27,4 @@ class Test_01_Login(BaseTest):
 
         assert name == 'vinit kumar'
 
-        assert li.get('email') == 'rrm@gmail.com'
+        assert li.get('email') == email

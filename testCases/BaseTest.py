@@ -1,6 +1,6 @@
 import pytest
 
 
-@pytest.mark.usefixtures("setUp")
+@pytest.mark.usefixtures("setup")
 class BaseTest:
     pass
