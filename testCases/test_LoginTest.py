@@ -1,10 +1,13 @@
 from PageObjects.HomePage import HomePage
+from Utilities.DataProvider import getData
 from testCases.BaseTest import BaseTest
+import pytest
 
 
 class Test_01_Login(BaseTest):
 
-    def test_Login(self):
+    @pytest.mark.parametrize("email, password", getData())
+    def test_Login(self, email, password):
 
         self.homePage = HomePage(self.driver)
 
@@ -12,7 +15,7 @@ class Test_01_Login(BaseTest):
 
         self.loginPage = self.homePage.goToLoginPage()
 
-        self.loginPage.doLogin('rrm@gmail.com', 'qwerty')
+        self.loginPage.doLogin(email, password)
 
         li = self.loginPage.verifyLoginTest()
 
