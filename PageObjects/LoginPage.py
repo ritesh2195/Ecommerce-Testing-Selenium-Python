@@ -4,15 +4,15 @@ from PageObjects.BasePage import BasePage
 
 
 class LoginPage(BasePage):
-    Email = (By.CSS_SELECTOR, "#email")
+    __Email = (By.CSS_SELECTOR, "#email")
 
-    Password = (By.CSS_SELECTOR, "#passwd")
+    __Password = (By.CSS_SELECTOR, "#passwd")
 
-    Submit = (By.CSS_SELECTOR, "#SubmitLogin")
+    __Submit = (By.CSS_SELECTOR, "#SubmitLogin")
 
-    Message = (By.CSS_SELECTOR, ".info-account")
+    __Message = (By.CSS_SELECTOR, ".info-account")
 
-    UserInfo = (By.CSS_SELECTOR, ".header_user_info a span")
+    __UserInfo = (By.CSS_SELECTOR, ".header_user_info a span")
 
     PersonalInfo = (By.XPATH, "//span[text()='My personal information']")
 
@@ -22,22 +22,22 @@ class LoginPage(BasePage):
         super().__init__(driver)
 
     def doLogin(self, email, password):
-        self.driver.find_element(*LoginPage.Email).send_keys(email)
+        self.driver.find_element(*LoginPage.__Email).send_keys(email)
 
-        self.driver.find_element(*LoginPage.Password).send_keys(password)
+        self.driver.find_element(*LoginPage.__Password).send_keys(password)
 
-        self.driver.find_element(*LoginPage.Submit).click()
+        self.driver.find_element(*LoginPage.__Submit).click()
 
     def verifyLoginTest(self):
         loginInfo = {}
 
-        self.WaitForPresenceOfElement(self.Message)
+        self.WaitForPresenceOfElement(self.__Message)
 
-        msg = self.driver.find_element(*LoginPage.Message).text
+        msg = self.driver.find_element(*LoginPage.__Message).text
 
         loginInfo['login_message'] = msg
 
-        name = self.driver.find_element(*LoginPage.UserInfo).text
+        name = self.driver.find_element(*LoginPage.__UserInfo).text
 
         loginInfo['UserName'] = name
 

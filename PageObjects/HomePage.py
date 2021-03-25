@@ -7,7 +7,7 @@ from Utilities.ConfigReader import configReader
 
 class HomePage(BasePage):
 
-    LoginButton = (By.CSS_SELECTOR, ".login")
+    __LoginButton = (By.CSS_SELECTOR, ".login")
 
     def __init__(self, driver):
 
@@ -19,8 +19,8 @@ class HomePage(BasePage):
 
     def goToLoginPage(self):
 
-        self.WaitForElementToClickable(self.LoginButton)
+        self.WaitForElementToClickable(self.__LoginButton)
 
-        self.driver.find_element(*HomePage.LoginButton).click()
+        self.driver.find_element(*HomePage.__LoginButton).click()
 
         return LoginPage(self.driver)

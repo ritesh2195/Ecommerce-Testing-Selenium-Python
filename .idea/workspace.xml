@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3e4c6f2-db7f-4a7f-acf5-9bb08478b3f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utilities/DataProvider.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/DataProvider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testCases/test_LoginTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/testCases/test_LoginTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PageObjects/HomePage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObjects/HomePage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PageObjects/LoginPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObjects/LoginPage.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +107,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
