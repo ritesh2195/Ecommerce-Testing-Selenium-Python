@@ -9,15 +9,15 @@ driver = None
 def setup(request):
     global driver
 
-    browser = request.config.getoption("browser")
+    browser_name = request.config.getoption("browser_name")
 
-    if browser == 'chrome':
+    if browser_name == 'chrome':
 
         driver = webdriver.Chrome(ChromeDriverManager().install())
 
         driver.maximize_window()
 
-    elif browser == 'firefox':
+    elif browser_name == 'firefox':
 
         driver = webdriver.Firefox(executable_path="D:\\PYTHON\\geckodriver.exe")
 
@@ -31,11 +31,12 @@ def setup(request):
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", action="store", default="chrome")
+    parser.addoption("--browser_name", action="store", default="chrome")
 
 
 @pytest.mark.hookwrapper
 def pytest_runtest_makereport(item):
+
     pytest_html = item.config.pluginmanager.getplugin('html')
 
     outcome = yield
@@ -52,11 +53,12 @@ def pytest_runtest_makereport(item):
 
             file = report.nodeid.replace("::", "_") + ".png"
 
-            file_name = 'Screenshots/' + file
+            file_name = 'Screenshots/'+file
 
             _capture_screenshot(file_name)
 
             if file_name:
+
                 html = '<div><img src="%s" alt="screenshot" style="width:304px;height:228px;" ' \
                        'onclick="window.open(this.src)" align="right"/></div>' % file_name
 
